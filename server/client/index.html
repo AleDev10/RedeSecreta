@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="br-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>CODE...</title>
+</head>
+<body>
+    <div class="login">
+        <h1>REDE SECRETA</h1>
+        <input type="text" name="username" id="user">
+        <button id="btEntrar">ENTRAR</button>
+    </div>
+    <div class="chat">
+        <div class="mensagens">
+
+        </div>
+        <input type="text" name="entradamensagem" id="entradamsg">
+        <button id="btEnviar">enviar</button>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="logic/entrarChat.js"></script>
+</body>
+</html>

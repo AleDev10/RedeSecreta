@@ -1,0 +1,12 @@
+.chat{
+    display: none;
+}
+.info{
+    text-align: center;
+}
+.msgEu{
+    text-align: end;
+}
+.msgEle{
+    text-align: start;
+}
