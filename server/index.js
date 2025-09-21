@@ -12,6 +12,7 @@ const io = new Server(server);
 
 // Importação das rotas
 const paginaPrincipal = require("./routes/paginaPrincipal.js");
+const documentos = require('./routes/documentosRota.js')
 
 // Variáveis globais
 let clientes = [];
@@ -21,6 +22,8 @@ app.use(express.static(path.join(__dirname, "client")));
 
 // Rotas principais
 app.use("/", paginaPrincipal);
+app.use('/arquivos',documentos);
+app.use('/arquivos',express.static(path.join(__dirname,'files')));
 
 // Eventos do socket.io
 io.on("connection", (socket) => {
