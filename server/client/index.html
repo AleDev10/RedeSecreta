@@ -18,9 +18,9 @@
         </div>
         <input type="text" name="entradamensagem" id="entradamsg">
         <button id="btEnviar">enviar</button>
-        <form action="http://localhost:3000/arquivos" method="post" enctype="multipart/form-data" target="_blank">
-            <input type="file" name="meuarquivo">
-            <button type="submit">Enviar arquivo</button>
+        <form id="meuform" action="http://localhost:3000/arquivos" method="post" enctype="multipart/form-data">
+            <input id="entradaForm" type="file" name="meuarquivo">
+            <button id="btForm" type="submit">Enviar arquivo</button>
         </form>
     </div>
     <script src="/socket.io/socket.io.js"></script>

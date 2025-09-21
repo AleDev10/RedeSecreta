@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const http = require("http");
 const { Server } = require("socket.io");
+const multer = require("multer");
 const porta = process.env.PORT || 3000;
 
 // configurações do servidor
@@ -10,20 +11,40 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+//configuração do multer
+const storage = multer.diskStorage({
+  destination:function (req,file,cb) {
+    cb(null,path.join(__dirname,'files'));
+  },
+  filename:function (req,file,cb) {
+    cb(null,Date.now()+'-'+file.originalname)
+  }
+});
+const files = multer({storage:storage});
+
 // Importação das rotas
 const paginaPrincipal = require("./routes/paginaPrincipal.js");
-const documentos = require('./routes/documentosRota.js')
 
 // Variáveis globais
 let clientes = [];
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "client")));
-
-// Rotas principais
-app.use("/", paginaPrincipal);
-app.use('/arquivos',documentos);
 app.use('/arquivos',express.static(path.join(__dirname,'files')));
+
+// Rotas
+app.use("/", paginaPrincipal);
+
+//Rota especial
+app.post('/arquivos',files.single('meuarquivo'),(req,res)=>{
+  if (req.file){ 
+    io.emit('link',`http://localhost:${porta}/arquivos/${req.file.filename}`);
+    console.log(`http://localhost:${porta}/arquivos/${req.file.filename}`);
+    }else{
+      io.emit('link',`Problema ao criar link`);
+      console.log("Erro ao enviar o arquivo");
+    }
+});
 
 // Eventos do socket.io
 io.on("connection", (socket) => {

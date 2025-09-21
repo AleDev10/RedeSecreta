@@ -6,18 +6,31 @@ const chat = document.querySelector(".chat");
 const mensagens = document.querySelector(".mensagens");
 const entradamsg = document.querySelector("#entradamsg");
 const btEnviar = document.querySelector("#btEnviar");
+const form = document.querySelector("#meuform");
+const entradaForm = document.querySelector("#entradaForm");
+const btForm = document.querySelector("#btForm");
 
 //socket.io na parte do cliente
 let socket = null;
 let nomeusuario = "";
 
 function adicionarMensagem(tipo, msg) {
-  if (tipo === "eu") {
-    mensagens.innerHTML += `<p class="msgEu">${msg} :${nomeusuario}</p>`;
-  } else if (tipo === "ele") {
-    mensagens.innerHTML += `<p class="msgEle">${msg}</p>`;
-  } else if (tipo === "info") {
-    mensagens.innerHTML += `<p class="info">${msg}</p>`;
+  switch (tipo) {
+    case 'eu':
+       mensagens.innerHTML += `<p class="msgEu">${msg} :${nomeusuario}</p>`;
+      break;
+    case 'ele':
+       mensagens.innerHTML += `<p class="msgEle">${msg}</p>`;
+      break;
+    case 'info':
+       mensagens.innerHTML += `<p class="info">${msg}</p>`;
+      break;
+    case 'link':
+       mensagens.innerHTML += `<a class="info" href=${msg} target="_blank" rel="noopener noreferrer">arquivo enviado</a>`;
+      break;
+    default:
+      console.log('nenhuma opção encontrada');
+      break;
   }
 }
 
@@ -30,6 +43,9 @@ function registrarEventosSocket() {
   });
   socket.on("chat message", (msg) => {
     adicionarMensagem("ele", msg);
+  });
+  socket.on('link',(msg)=>{
+    adicionarMensagem('link',msg);
   });
 }
 
@@ -52,3 +68,15 @@ btEnviar.onclick = () => {
     entradamsg.value = "";
   }
 };
+
+form.addEventListener('submit',async (e)=>{
+  e.preventDefault();
+
+  const formData = new FormData(form);
+  
+  await fetch('http://localhost:3000/arquivos',{
+    method:'POST',
+    body:formData
+  });
+  entradaForm.value = '';
+});
