@@ -1,12 +1,236 @@
-.chat{
+@font-face {
+  font-family: "minha";
+  src: url(../assets/MeraPro-Regular.otf) format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "minha", sans-serif;
+  font-size: 1rem;
+}
+
+
+/*começo do login*/
+.login {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #10131b;
+  font-family: "minha", sans-serif;
+}
+
+.logotipo {
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/logo.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dadosacesso {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 1rem;
+  background-color: #9ccc5f;
+}
+
+.msboasvindas {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.msboasvindas img{
+  width: 90%;
+}
+
+.credencias {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+}
+.infnecessaria{
+    width: 100%;
+    display: flex;
+    align-items: start;
+}
+
+#user{
+    width: 100%;
+    height: 2rem;
+    border-radius: .5rem;
+    outline-style: none;
+    border: none;
+    padding: 1rem;
+}
+
+#btEntrar {
+  color: white;
+  background-color: #10131b;
+  font-family: "minha", sans-serif;
+  width: 60%;
+  height: 2rem;
+  align-items: center;
+   border-radius: .5rem;
+}
+
+
+/*começo do chat*/
+.chat {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #9ccc5f;
+}
+.mensagens {
+  display: flex;
+  width: 90%;
+  height: 90%;
+  background-color: #10131b;
+  color: aliceblue;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/*verdadeira aria das mensagens*/
+.conversas {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.conversas::-webkit-scrollbar{
+ display: none;
+}
+.conversas h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+.conversas h2 {
+  text-align: center;
+  margin-top: .5%;
+}
+.receber {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  padding: 1rem;
+}
+.receber h3 {
+  margin-left: 1rem;
+}
+.eles {
+  background-color: aliceblue;
+  color: #10131b;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.enviar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.eu {
+  margin-right: 1rem;
+  background-color: #97e22d;
+  color: #10131b;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.enviar h3 {
+  margin-right: 2rem;
+}
+
+/*caixa de ferramentas*/
+.ferramentas {
+  display: flex;
+  justify-content: space-around; /*alinhar no eixo x ou y independentemente das da direicao linha ou coluna*/
+  width: 100%;
+  height: 12%;
+  padding: 1rem;
+}
+.icone img{
+  width: 70%;
+  transition: ease-in;
+}
+.icone img:hover{
+  cursor: pointer;
+}
+.icone img:hover:active{
+  width: 60%;
+  transition: ease-out;
+}
+.blocomensagem {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 90%;
+  padding: 0.5rem; /*margem interna*/
+  border-radius: 0.8rem;
+}
+#entradamsg {
+  border: none; /*cancelar o a curva*/
+  width: 100%;
+  font-size: 1.2rem;
+  outline-style: none;
+}
+#btEnviar {
+  width: 10%;
+  height: 4rem;
+  border: none;
+  background-color: transparent;
+}
+#btEnviar img{
+  width: 50%;
+}
+#btEnviar:hover {
+  cursor: pointer;
+  background-color: #9ccc5f;
+  border-radius: 0.8rem;
+}
+#btEnviar:hover:active {
+  background-color: transparent;
+}
+
+/*caixa de enviar arquivos*/
+.arquivos{
     display: none;
+    background-color: #f0f0f0;
+    width: 100%;
 }
-.info{
-    text-align: center;
+.arquivos button{
+    font-family: "minha", sans-serif;
+    color: #f0f0f0;
+    background-color: #10131b;
+    border: none;
+    padding: 0.5rem;
 }
-.msgEu{
-    text-align: end;
+.arquivos button:hover{
+    background-color: #9ccc5f;
+    color: #10131b;
 }
-.msgEle{
-    text-align: start;
+.arquivos button:hover:active{
+    background-color: #10131b;
+    color: #f0f0f0;
+}
+.arquivos input{
+    color: #f0f0f0;
+    border: none;
+    padding: 0.5rem;
 }

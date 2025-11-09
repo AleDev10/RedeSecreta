@@ -76,6 +76,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(porta, () => {
-  console.log(`Servidor rodando na porta http://localhost:${porta}`);
+server.listen(porta,'0.0.0.0', () => {
+  console.log(`Servidor rodando na porta http://0.0.0.0:${porta}`);
 });

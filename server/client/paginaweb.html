@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo com Frames Modernos</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+       font-family: 'minha', sans-serif;
+       font-size: 1rem;
+    }
+
+  @font-face{
+    font-family: 'minha';
+    src:url(MeraPro-Regular.otf) format('truetype');
+  }
+
+  .container {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      background-color: #10131b;
+      font-family: 'minha', sans-serif;
+    }
+  
+    .left {
+      width: 100%;
+      height: 100%;
+      background-image: url(IMG-20250920-WA0030.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      
+    }
+
+    .right{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #3bfc55 ;
+    }
+
+    #pro{
+      width: 60%;
+      height: 5%;
+      background-image: url(IMG-20250923-WA0082.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .dados{
+      gap: 10px;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #xd{
+      font-size: 0.5;
+      text-align: left;
+    }
+
+    #botao{
+      color: white;
+      background-color: #10131b;
+      font-family: 'minha', sans-serif;
+      width: 70%;
+      align-items: center;
+    }
+
+    .fundo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      
+      height: 100vh;
+      background-color: #3bfc55;
+    }
+
+    .chate{
+      display: flex;
+      width: 90%;
+      height: 90%;
+      background-color: #10131b;
+      color: aliceblue;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .conversas{
+     display: flex; 
+     flex-direction: column;
+     width: 100%;
+     height: 90%;
+    }
+
+    .conversas h2{
+     text-align: center;
+    }
+
+    .receber{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .receber h3{
+      margin-left: 1rem;
+    }
+
+    .ele{
+      background-color: aliceblue;
+      color: #10131b;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+
+    .enviar{
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      width: 100%;
+    }
+
+    .eu{
+      margin-right: 1rem;
+      background-color: #97e22d;
+      color: #10131b;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+
+    .enviar h3{
+      margin-right: 2rem;
+    }
+
+    .ferramentas{
+      display: flex;
+      justify-content: space-around;/*alinhar no eixo x ou y independentemente das da direicao linha ou coluna*/
+      width: 100%;
+      height: 12%;
+      padding: 1rem;
+    }
+
+    .icone{
+      background-image: url(circulo.png);
+      background-size: cover;/*para ocupar o tamanho do seu pai*/
+      width: 10%;
+      height: 100%;
+    }
+
+    .bloco_mensagem{
+      display: flex;
+      align-items: center;
+      background-color: white;
+      width: 80%;
+      padding: 0.5rem;/*margem interna*/
+      border-radius: 0.8rem;
+      
+    }
+
+    .caixa_texto{
+      border: none;/*cancelar o a curva*/
+      width: 89%;
+    }
+
+    .opcao_enviar{
+      background-image: url(send.png);
+      width: 10%;
+      height: 100%;
+      border: none;
+      background-size: cover;
+      background-color: transparent;
+    }
+
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left"></div>
+    <div class="right">
+      <div id="pro"></div>
+      <div class="dados">
+         <div id="xd">
+          <h5>NOME:</h5>
+         </div>
+          <input type="text" id="restricao">
+          <button id="botao">entrar</button>
+      </div>
+      <p>nada sai daqui</p>
+    </div>
+  </div>
+  <div class="fundo">
+     <div class="chate">
+  
+  <div class="conversas">
+    <h1>servidor iniciado </h1>
+    <h2>Alex entrou</h2>
+    <h2>Yurivaldo entrou</h2>
+    <h2>Arlene entrou</h2>
+    <div class="receber">
+      <h3>
+          Arlene
+        </h3>
+        <p class="ele">
+          alguem tem o arquivo
+        </p>
+    </div>
+    <div class="enviar">
+      <h3>
+          Alex
+        </h3>
+        <p class="eu">
+          o arquivo
+        </p>
+    </div>
+   </div> 
+   <div class="ferramentas">
+     <div class="icone"></div>
+      <div class="bloco_mensagem">
+        <input type="text" name="texto"class="caixa_texto" placeholder="esperando"><button class="opcao_enviar"></button>
+      </div>
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

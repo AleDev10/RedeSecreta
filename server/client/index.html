@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
     <title>CODE...</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="login">
-        <h1>REDE SECRETA</h1>
-        <input type="text" name="username" id="user">
-        <button id="btEntrar">ENTRAR</button>
+      <div class="logotipo"></div>
+      <div class="dadosacesso">
+        <div class="msboasvindas"><img src="./assets/bv.png" alt="bem vindo"></div>
+        <div class="credencias">
+          <div class="infnecessaria">
+            <h3>NOME:</h3>
+          </div>
+          <input type="text" name="username" id="user" />
+          <button id="btEntrar">ENTRAR</button>
+        </div>
+        <p>nada sai daqui</p>
+      </div>
     </div>
     <div class="chat">
-        <div class="mensagens">
-
+      <div class="mensagens">
+        <div class="conversas">
+          <h1>servidor iniciado</h1>
         </div>
-        <input type="text" name="entradamensagem" id="entradamsg">
-        <button id="btEnviar">enviar</button>
-        <form id="meuform" action="http://localhost:3000/arquivos" method="post" enctype="multipart/form-data">
-            <input id="entradaForm" type="file" name="meuarquivo">
+        <div class="ferramentas">
+          <div class="icone"><img src="./assets/circulo.png" alt="plus"></div>
+          <div class="blocomensagem">
+            <input type="text" name="entradamensagem" id="entradamsg" placeholder="Escreva uma mensagem"/>
+            <button id="btEnviar"><img src="./assets/send.png" alt="send"></button>
+          </div>
+        </div>
+        <div class="arquivos">
+          <form
+            id="meuform"
+            action="http://localhost:3000/arquivos"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <input id="entradaForm" type="file" name="meuarquivo" />
             <button id="btForm" type="submit">Enviar arquivo</button>
-        </form>
+          </form>
+        </div>
+      </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="logic/entrarChat.js"></script>
-</body>
+  </body>
 </html>
